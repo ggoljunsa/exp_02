@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>FormData Objects</title>
+</head>
+
+<body>
+    <div id="output">
+        <pre></pre>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            let fd = new FormData();
+            fd.append('name', 'Bubba');
+            fd.append('id', 1234);
+            fd.append('created_dt', Date.now());
+
+            console.log(Array.from(fd));
+
+            for (let obj of fd) {
+                console.log(obj)
+            }
+
+            document.querySelector('#output pre').textContent = JSON.stringify(Array.from(fd), '\t', 2);
+            // let url = 'http://www.example.com/';
+            // let req = new Request({
+            //     url: url,
+            //     body: fd
+            // })
+            // fetch(req)
+            // .then(response => response.json() )
+            // .then( data => {})
+            // .catch( err => {})
+
+        });
+    </script>
+</body>
+
+</html>
